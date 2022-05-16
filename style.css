@@ -1,0 +1,19 @@
+.top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3vh;
+}
+
+.table {
+    display: flex;
+    height: 960px;
+    width: 960px;
+    border: 1vh double rgb(88, 65, 190);
+    margin: auto;
+    
+}
+
+.grid {
+    border: 1px thin black;
+}
