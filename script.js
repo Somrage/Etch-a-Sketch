@@ -9,3 +9,11 @@ for (let i = 0; i < grids*grids; i++) {
 }
 
 table.style.cssText = `grid-template-columns: repeat(${grids}, 1fr); grid-template-rows: repeat(${grids}, 1fr);`
+
+const grid = document.querySelectorAll('.grid')
+
+grid.forEach((cell) => {
+    cell.addEventListener('mouseenter', () => {
+        cell.style.cssText = 'background-color: #000000';
+        })
+});

@@ -2,18 +2,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 3vh;
+    margin: 3vh;
 }
 
 .table {
     display: grid;
     height: 800px;
     width: 800px;
-    border: 1vh double rgb(88, 65, 190);
+    border: 5px solid rgb(209 209 209);
     margin: auto;
 }
 
 .grid {
-    border: 1px solid black;
+    border: 1px dotted #000000;
     margin:0 -1px -1px 0;
 }
