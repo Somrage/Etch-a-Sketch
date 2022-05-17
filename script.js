@@ -1,6 +1,6 @@
 const table = document.querySelector('.table')
 
-let grids = 15
+let grids = 20
 
 for (let i = 0; i < grids*grids; i++) {
     const grid = document.createElement('div')
@@ -12,8 +12,21 @@ table.style.cssText = `grid-template-columns: repeat(${grids}, 1fr); grid-templa
 
 const grid = document.querySelectorAll('.grid')
 
+let isDrawing = false;
+
+function draw() {
+    if (isDrawing === true) {
+        grid.forEach((cell) => {
+            cell.addEventListener('mousemove', () => {
+                cell.style.cssText = 'background-color: #000000';
+            })
+        });
+    }
+}
+
 grid.forEach((cell) => {
-    cell.addEventListener('mouseenter', () => {
-        cell.style.cssText = 'background-color: #000000';
-        })
+    cell.addEventListener('mousedown', () => {
+        isDrawing = true;
+        draw();
+        });
 });
