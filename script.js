@@ -1,4 +1,5 @@
 const table = document.querySelector('.table')
+isDrawing = false
 
 let grids = 20
 
@@ -12,21 +13,23 @@ table.style.cssText = `grid-template-columns: repeat(${grids}, 1fr); grid-templa
 
 const grid = document.querySelectorAll('.grid')
 
-let isDrawing = false;
-
+//allows to draw on grid only while mouse is pressed, although there is bug rarely activates mouse dragging instead of a function
 function draw() {
-    if (isDrawing === true) {
-        grid.forEach((cell) => {
-            cell.addEventListener('mousemove', () => {
-                cell.style.cssText = 'background-color: #000000';
-            })
-        });
-    }
+    grid.forEach((cell) => {
+        cell.addEventListener('mousedown', e => {
+            isDrawing = true;
+        })
+
+        cell.addEventListener('mouseover', e => {
+            if (isDrawing === true) {
+                cell.classList.add('cell');
+            }
+        })
+
+        cell.addEventListener('mouseup', e => {
+            isDrawing = false;
+        })
+    })
 }
 
-grid.forEach((cell) => {
-    cell.addEventListener('mousedown', () => {
-        isDrawing = true;
-        draw();
-        });
-});
+draw();
