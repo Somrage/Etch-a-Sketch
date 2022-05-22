@@ -10,8 +10,8 @@
 </head>
 <body>
     <div class="top">
-        <input type="Text">
-        <button class="make">Generate</button>
+        <input type="range" id="vol" min="5" max="50" step='5' oninput="this.nextElementSibling.value = this.value">
+        <output id="vol-value">20</output>
     </div>
     
     <div class="table"></div>

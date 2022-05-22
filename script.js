@@ -1,23 +1,36 @@
-const table = document.querySelector('.table')
-isDrawing = false
+const table = document.querySelector('.table');
+let isDrawing = false;
+const gridSize = document.getElementById('vol');
 
-let grids = 20
+gridSize.addEventListener('input', makeGrid);
 
-for (let i = 0; i < grids*grids; i++) {
-    const grid = document.createElement('div')
-    grid.classList.add('grid')
-    table.appendChild(grid);
+function makeGrid(gridSize) {
+    clearGrid();
+    gridSize = document.getElementById('vol').value;
+    for (let i = 0; i < gridSize*gridSize; i++) {
+        const grid = document.createElement('div')
+        grid.classList.add('grid')
+        table.appendChild(grid);
+    }    
+
+    table.style.cssText = `grid-template-columns: repeat(${gridSize}, 1fr); grid-template-rows: repeat(${gridSize}, 1fr);`
 }
 
-table.style.cssText = `grid-template-columns: repeat(${grids}, 1fr); grid-template-rows: repeat(${grids}, 1fr);`
+function clearGrid () {
+    while (table.firstChild) {
+        table.removeChild(table.firstChild);
+    }
+}   
+
 
 const grid = document.querySelectorAll('.grid')
 
-//allows to draw on grid only while mouse is pressed, although there is bug rarely activates mouse dragging instead of a function
+//allows to draw on grid only while mouse is pressed, although there is rare bug that activates mouse dragging instead of a function
 function draw() {
     grid.forEach((cell) => {
         cell.addEventListener('mousedown', e => {
             isDrawing = true;
+            cell.classList.add('cell');
         })
 
         cell.addEventListener('mouseover', e => {
