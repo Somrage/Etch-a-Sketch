@@ -24,11 +24,18 @@ function clearGrid () {
     }
 }   
 
-//allows to draw on grid only while mouse is pressed, although there is rare bug that activates mouse dragging instead of a function
+
 function draw(grid) {
     grid = document.querySelectorAll('.grid');
 
     grid.forEach((cell) => {
+        cell.setAttribute('draggable', 'false');
+
+        //this listener actually prevent dragging (because cell.setAttribute for some reason don't)
+        cell.addEventListener('dragstart', e => {
+            e.preventDefault();
+        })
+
         cell.addEventListener('mousedown', e => {
             isDrawing = true;
             const color = document.getElementById('colorPick').value;
@@ -53,5 +60,4 @@ function play() {
     draw();
 }
 
-makeGrid();
-draw(); 
+play();
