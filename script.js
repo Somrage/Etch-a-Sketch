@@ -3,6 +3,7 @@ const gridSize = document.getElementById('vol');
 const grid = document.querySelectorAll('.grid');
 let isDrawing = false;
 
+
 gridSize.addEventListener('input', play);
 
 function makeGrid(gridSize) {
@@ -26,15 +27,18 @@ function clearGrid () {
 //allows to draw on grid only while mouse is pressed, although there is rare bug that activates mouse dragging instead of a function
 function draw(grid) {
     grid = document.querySelectorAll('.grid');
+
     grid.forEach((cell) => {
         cell.addEventListener('mousedown', e => {
             isDrawing = true;
-            cell.classList.add('cell');
+            const color = document.getElementById('colorPick').value;
+            cell.style.cssText = `background-color: ${color}`;
         })
 
         cell.addEventListener('mouseover', e => {
             if (isDrawing === true) {
-                cell.classList.add('cell');
+                const color = document.getElementById('colorPick').value;
+                cell.style.cssText = `background-color: ${color}`;
             }
         })
 
