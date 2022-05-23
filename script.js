@@ -1,7 +1,8 @@
 const table = document.querySelector('.table');
-const grid = document.querySelectorAll('.grid');
+const grid = document.querySelectorAll('.grid'); //later I reference grid with querySelector('.grid') again multiple times because its a live Nodelist
 const clearGrid = document.querySelector('#clearGrid');
 const fillGrid = document.querySelector('#fillGrid');
+const bordersToggleBtn = document.querySelector('#bordersToggle');
 const gridSize = document.getElementById('vol');
 let isDrawing = false;
 
@@ -14,12 +15,22 @@ function fillGridFunc(grid, color) {
     })
 }
 
+function borderToggle(grid) {
+    grid = document.querySelectorAll('.grid');
+    
+    bordersToggleBtn.addEventListener('click', e => {
+        grid.forEach((cell) => {
+            cell.classList.toggle('borders');
+        })
+    })
+}
+
 function makeGrid(gridSize) {
     deleteGrid();
     gridSize = document.getElementById('vol').value;
     for (let i = 0; i < gridSize*gridSize; i++) {
         const newGrid = document.createElement('div');
-        newGrid.classList.add('grid');
+        newGrid.classList.add('grid', 'borders');
         table.appendChild(newGrid);
     }    
 
@@ -68,6 +79,7 @@ function draw(grid) {
 function play() {
     makeGrid();
     draw();
+    borderToggle();
     fillGrid.addEventListener('click', fillGridFunc);
     gridSize.addEventListener('input', play);
     clearGrid.addEventListener('click', play);
