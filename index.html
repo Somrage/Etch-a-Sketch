@@ -11,8 +11,10 @@
 <body>
     <div class="top">
         <input type="range" id="vol" min="5" max="50" step='5' oninput="this.nextElementSibling.value = this.value" value="20">
-        <output id="vol-value">20</output>
+        <output id="volValue">20</output>
         <input type="color" value="000000" id="colorPick">
+        <button id="clearGrid">Clear</button>
+        <button id="fillGrid">Fill</button>
     </div>
     
     <div class="table"></div>

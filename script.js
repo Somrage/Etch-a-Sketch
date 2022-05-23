@@ -1,13 +1,21 @@
 const table = document.querySelector('.table');
-const gridSize = document.getElementById('vol');
 const grid = document.querySelectorAll('.grid');
+const clearGrid = document.querySelector('#clearGrid');
+const fillGrid = document.querySelector('#fillGrid');
+const gridSize = document.getElementById('vol');
 let isDrawing = false;
 
+function fillGridFunc(grid, color) {
+    grid = document.querySelectorAll('.grid');
+    color = document.getElementById('colorPick').value;
 
-gridSize.addEventListener('input', play);
+    grid.forEach((cell) => {
+        cell.style.cssText = `background-color: ${color}`;
+    })
+}
 
 function makeGrid(gridSize) {
-    clearGrid();
+    deleteGrid();
     gridSize = document.getElementById('vol').value;
     for (let i = 0; i < gridSize*gridSize; i++) {
         const newGrid = document.createElement('div');
@@ -18,11 +26,13 @@ function makeGrid(gridSize) {
     table.style.cssText = `grid-template-columns: repeat(${gridSize}, 1fr); grid-template-rows: repeat(${gridSize}, 1fr);`
 }
 
-function clearGrid () {
+function deleteGrid () {
     while (table.firstChild) {
         table.removeChild(table.firstChild);
     }
 }   
+
+
 
 
 function draw(grid) {
@@ -58,6 +68,9 @@ function draw(grid) {
 function play() {
     makeGrid();
     draw();
+    fillGrid.addEventListener('click', fillGridFunc);
+    gridSize.addEventListener('input', play);
+    clearGrid.addEventListener('click', play);
 }
 
 play();
