@@ -1,3 +1,7 @@
+body {
+    background-color: #f1f1f13b;;
+}
+
 .top {
     display: flex;
     justify-content: center;
@@ -5,15 +9,78 @@
     margin: 3vh;
 }
 
+.main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .table {
     display: grid;
     height: 800px;
     width: 800px;
-    border: 5px solid rgb(209 209 209);
+    border: 5px solid rgb(124 140 169);
     margin: auto;
+    background-color: white;
+    background-image: url("images/—Pngtree—floral\ frame\ with\ golden\ leaves_6942358.png");
+}
+
+.table-image {
+    background-size: cover;
 }
 
 .borders {
-    border: 1px dotted #000000;
+    border: 1px solid #00000010;
     margin:0 -1px -1px 0;
+}
+
+.btn {
+    border: 2px solid rgb(100, 111, 207);
+    background: transparent;
+    padding: 12px 46px;
+    border-radius: 0px;
+    color: rgb(100, 111, 207);
+    text-shadow: rgb(0 0 0 / 32%) 0px 0px 26px;
+    font-size: 15px;
+    transition-duration: 0.2s;
+    font-family: 'Roboto', sans-serif;
+    margin: 10px;
+}
+
+input[type="color"] {
+    -webkit-appearance: none;
+    border: 0px solid rgb(100, 111, 207);
+    width: 34px;
+    height: 14px;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 810px;
+    margin: auto;
+    background: #f9c442;
+    margin-bottom: 10px;
+    height: 10px;
+    border: 1px solid #7c8ca9;
+    cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #35486d;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.slider:hover {
+    background: #f7b714;
 }

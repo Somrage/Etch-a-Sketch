@@ -6,18 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Etch-A-Sketch</title>
 </head>
 <body>
     <div class="top">
-        <input type="range" id="vol" min="5" max="50" step='5' oninput="this.nextElementSibling.value = this.value" value="20">
-        <output id="volValue">20</output>
-        <input type="color" value="000000" id="colorPick">
-        <button id="clearGrid">Clear</button>
-        <button id="fillGrid">Fill</button>
-        <button id="bordersToggle">Borders On/Off</button>
+        <div class="btn">
+            Color
+            <input class="button" type="color" value="000000" id="colorPick">
+        </div>
+        <button class="btn" id="clearGrid">Clear</button>
+        <button class="btn" id="fillGrid">Fill</button>
+        <button class="btn" id="bordersToggle">Grid</button>
+        <button class="btn" id="background">Background</button>
     </div>
-    
-    <div class="table"></div>
+
+    <div class="main">
+        <input class="slider" type="range" id="vol" min="5" max="55" step="5" value="30">
+        
+        <div class="table table-image">
+        </div>
+    </div>
 </body>
 </html>
