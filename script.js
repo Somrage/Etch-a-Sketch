@@ -72,10 +72,6 @@ function draw(grid) {
     })
 }
 
-backgroundToggle.addEventListener('click', () => {
-    table.classList.toggle('table-image');
-})
-
 function play() {
     makeGrid();
     draw();
